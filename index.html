@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Wahhab — Mechanical & Aerospace Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --border: #e2ddd6;
+    --text: #1a1814;
+    --muted: #6b6660;
+    --hint: #a09a94;
+    --accent: #2a4a8f;
+    --accent-light: #e8edf8;
+    --tag-bg: #eeebe5;
+    --tag-text: #4a4540;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Layout */
+  .wrapper { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 16px;
+  }
+  .logo {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .logo span { color: var(--accent); }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  nav a:hover { background: var(--tag-bg); color: var(--text); }
+  nav a.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+
+  /* Hero */
+  .hero {
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .hero h1 strong { font-weight: 500; }
+  .hero-role {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+  .hero-about {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 600px;
+    margin-bottom: 1.75rem;
+  }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    background: var(--surface);
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .social-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+  .social-btn svg { width: 15px; height: 15px; }
+  .resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    background: var(--accent-light);
+    transition: background 0.15s;
+  }
+  .resume-btn:hover { background: #d5ddf5; }
+
+  /* Sections */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .page-content { padding-bottom: 4rem; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hint);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* Skills */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+  .skill-tag {
+    font-size: 13px;
+    padding: 5px 13px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--tag-text);
+    background: var(--surface);
+  }
+
+  /* Education */
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .edu-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+  .edu-card p { font-size: 13px; color: var(--muted); }
+  .edu-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--tag-bg);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 600px) { .card-grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #c0bab3; }
+  .card h3 { font-size: 14px; font-weight: 500; line-height: 1.4; margin-bottom: 4px; }
+  .card .meta { font-size: 12px; color: var(--hint); margin-bottom: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 100px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+  }
+
+  /* Experience */
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .exp-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 20px;
+  }
+  .exp-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .exp-card p { font-size: 13px; color: var(--muted); }
+
+  /* Certifications */
+  .cert-group { margin-bottom: 1.5rem; }
+  .cert-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  @media (max-width: 540px) { .cert-grid-2 { grid-template-columns: 1fr; } }
+  .cert-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+  }
+  .cert-item .name { font-size: 13px; color: var(--text); line-height: 1.4; }
+  .cert-item .issuer { font-size: 11px; color: var(--hint); margin-top: 3px; font-family: 'DM Mono', monospace; }
+
+  /* Awards */
+  .award-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+  }
+  .award-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .award-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .award-card .meta { font-size: 12px; color: var(--hint); margin-bottom: 6px; }
+  .award-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* Contact */
+  .contact-list { max-width: 480px; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .contact-row:last-child { border: none; }
+  .contact-row .icon { font-size: 18px; width: 22px; text-align: center; }
+  .contact-row a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .contact-row a:hover { color: var(--accent); }
+
+  /* Home page combined */
+  .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  @media (max-width: 600px) { .home-grid { grid-template-columns: 1fr; } }
+  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapper header-inner">
+    <div class="logo">Abdul <span>Wahhab</span></div>
+    <nav>
+      <a class="active" onclick="show('home',this)">Home</a>
+      <a onclick="show('projects',this)">Projects</a>
+      <a onclick="show('experience',this)">Experience</a>
+      <a onclick="show('certifications',this)">Certifications</a>
+      <a onclick="show('contact',this)">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper page-content">
+
+  <!-- HOME -->
+  <div id="home" class="section active">
+    <div class="hero">
+      <p class="hero-eyebrow">Portfolio · Mechanical & Aerospace</p>
+      <h1><strong>Abdul Wahhab</strong></h1>
+      <p class="hero-role">Mechanical Engineer &nbsp;·&nbsp; Aerospace Engineer</p>
+      <p class="hero-about">Passionate engineer with expertise in aero-vehicle design, CAD modeling, FEA and CFD. Certified in SolidWorks and Ansys, with hands-on experience in aerospace and industrial system design. Skilled in technical drawings, DFM, simulations, and Multidisciplinary Design Optimization (MDO) to enhance performance, efficiency, and safety.</p>
+      <div class="socials">
+        <a class="social-btn" href="https://www.linkedin.com/in/abdul-wahhab-aeroworks/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-btn" href="mailto:abdulwahhab.aerotronic@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a class="social-btn" href="https://www.upwork.com/freelancers/~01abd674e59cbcd66f" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          Upwork
+        </a>
+        <a class="social-btn" href="https://www.instagram.com/abdul._.wahhab/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a class="resume-btn" href="https://drive.google.com/file/d/1r-d_GhCZ8WsNEp7eIJoo7VE_g_r-25hY/view" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Computer Aided Design</span>
+      <span class="skill-tag">Structural Analysis (FEA)</span>
+      <span class="skill-tag">Computational Fluid Dynamics</span>
+      <span class="skill-tag">Thermal Analysis</span>
+      <span class="skill-tag">Image Processing</span>
+      <span class="skill-tag">UAV Design & Development</span>
+      <span class="skill-tag">UAV Mission Planning</span>
+      <span class="skill-tag">SolidWorks</span>
+      <span class="skill-tag">Ansys</span>
+      <span class="skill-tag">MATLAB</span>
+      <span class="skill-tag">MDO</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Education</p>
+    <div class="edu-card">
+      <div>
+        <h3>BS Mechanical Engineering</h3>
+        <p>University of Engineering and Technology, Taxila</p>
+        <p style="margin-top:3px">GPA &nbsp;3.34 / 4.00</p>
+      </div>
+      <span class="edu-badge">Oct 2021 – Aug 2025</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Honors & Awards</p>
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div>
+        <h3>3rd Position — VTOL UAV, CVAR Exhibition & Competition</h3>
+        <p class="meta">IEEE · UET Taxila · Feb 2023</p>
+        <p>Awarded by the Vice Chancellor of UET Taxila for a semi-autonomous tri-rotor VTOL UAV at the 2023 IEEE SPS Seasonal School on Computer Vision Applications in Robotics.</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎖️</div>
+      <div>
+        <h3>Organizer Award — Capital Youth Expo, Islamabad</h3>
+        <p class="meta">Study Aid Foundation for Excellence · Dec 2023</p>
+        <p>Served at Islamabad's largest youth expo — a premier platform providing educational opportunities to students across the capital.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" class="section">
+    <p class="section-label" style="margin-top:2rem">UAV & Aerospace Projects</p>
+    <div class="card-grid">
+      <div class="card"><h3>High-Performance VTOL UAV with Hybrid Propulsion</h3><p class="meta">5 kg payload · 100 km range</p><div class="tags"><span class="tag">VTOL</span><span class="tag">Hybrid Propulsion</span></div></div>
+      <div class="card"><h3>60 kg MTOW Interceptor UAV</h3><p class="meta">Surveillance & Defense Application</p><div class="tags"><span class="tag">Defense</span><span class="tag">Systems Design</span></div></div>
+      <div class="card"><h3>AI-Integrated UAV Design</h3><p class="meta">40 kg MTOW · 120 km range</p><div class="tags"><span class="tag">AI Integration</span><span class="tag">Fixed Wing</span></div></div>
+      <div class="card"><h3>High-Altitude Pseudo Satellite (HAPS)</h3><p class="meta">Design and development</p><div class="tags"><span class="tag">HAPS</span><span class="tag">Aerospace</span></div></div>
+      <div class="card"><h3>Tri-rotor VTOL UAV</h3><p class="meta">Design and development · IEEE Award Winner</p><div class="tags"><span class="tag">VTOL</span><span class="tag">Award Winner</span></div></div>
+      <div class="card"><h3>Fixed Wing Surveillance UAV</h3><p class="meta">Design and development</p><div class="tags"><span class="tag">Fixed Wing</span><span class="tag">Surveillance</span></div></div>
+      <div class="card"><h3>Pesticide Spraying Autonomous Hexa-copter</h3><p class="meta">Agricultural UAV application</p><div class="tags"><span class="tag">Agriculture</span><span class="tag">Autonomous</span></div></div>
+      <div class="card"><h3>Target UAV — Structural & CFD Analysis</h3><p class="meta">Full design, FEA and CFD</p><div class="tags"><span class="tag">FEA</span><span class="tag">CFD</span></div></div>
+      <div class="card"><h3>Loitering Munition — Structural & CFD Analysis</h3><p class="meta">Full design, FEA and CFD</p><div class="tags"><span class="tag">FEA</span><span class="tag">CFD</span></div></div>
+      <div class="card"><h3>Obstacle Avoidance Quadcopter</h3><p class="meta">Development and testing</p><div class="tags"><span class="tag">Quadcopter</span><span class="tag">Avoidance</span></div></div>
+    </div>
+
+    <p class="section-label">Image Processing Projects</p>
+    <div class="card-grid">
+      <div class="card"><h3>Coin Detection and Value Calculation</h3><p class="meta">Using image processing techniques</p><div class="tags"><span class="tag">MATLAB</span><span class="tag">Image Processing</span></div></div>
+      <div class="card"><h3>Traffic Video Analysis</h3><p class="meta">Background subtraction & region properties</p><div class="tags"><span class="tag">Computer Vision</span><span class="tag">MATLAB</span></div></div>
+      <div class="card"><h3>Turkey Tracking in Blurry Video</h3><p class="meta">Object tracking through image processing</p><div class="tags"><span class="tag">Tracking</span><span class="tag">Image Processing</span></div></div>
+      <div class="card"><h3>Liquid Fill Level Calculator</h3><p class="meta">Percent liquid filled vs time</p><div class="tags"><span class="tag">Image Processing</span><span class="tag">Analysis</span></div></div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div id="experience" class="section">
+    <p class="section-label" style="margin-top:2rem">Work Experience</p>
+    <div class="exp-card">
+      <div class="exp-icon">✈️</div>
+      <div>
+        <h3>Aeronautical Engineer</h3>
+        <p>Sysverve Aerospace</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">🛩️</div>
+      <div>
+        <h3>Engineering Intern</h3>
+        <p>Pakistan Aeronautical Complex (PAC)</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">📡</div>
+      <div>
+        <h3>Engineering Intern</h3>
+        <p>Microwave Engineering</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div id="certifications" class="section">
+    <p class="section-label" style="margin-top:2rem">SolidWorks — Dassault Systèmes</p>
+    <div class="cert-grid-2">
+      <div class="cert-item"><div class="name">CAD Design Professional</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+      <div class="cert-item"><div class="name">Sheet Metal Professional</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+      <div class="cert-item"><div class="name">Additive Manufacturing Associate</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+      <div class="cert-item"><div class="name">3D Mold Creator Associate</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+      <div class="cert-item"><div class="name">Sustainability Associate</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+      <div class="cert-item"><div class="name">3DSwym Associate</div><div class="issuer">DASSAULT SYSTÈMES</div></div>
+    </div>
+
+    <p class="section-label">Engineering & Technical</p>
+    <div class="cert-grid-2">
+      <div class="cert-item"><div class="name">Image Processing for Engineering and Science Specialization</div><div class="issuer">MathWorks</div></div>
+      <div class="cert-item"><div class="name">MATLAB Onramp</div><div class="issuer">MathWorks</div></div>
+      <div class="cert-item"><div class="name">Flight Mechanics</div><div class="issuer">ISAE-SUPAERO</div></div>
+      <div class="cert-item"><div class="name">Autonomous Aerospace Systems</div><div class="issuer">Federica Weblearning</div></div>
+      <div class="cert-item"><div class="name">TRUST — Recreational UAS Safety Test</div><div class="issuer">Academy of Model Aeronautics</div></div>
+      <div class="cert-item"><div class="name">Developing Business Ideas for Drone Technologies</div><div class="issuer">The Open University</div></div>
+    </div>
+
+    <p class="section-label">Other</p>
+    <div class="cert-grid-2">
+      <div class="cert-item"><div class="name">Crash Course on Python</div><div class="issuer">Google</div></div>
+      <div class="cert-item"><div class="name">Forward Program</div><div class="issuer">McKinsey & Company</div></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="section">
+    <p class="section-label" style="margin-top:2rem">Get in touch</p>
+    <div class="contact-list">
+      <div class="contact-row"><span class="icon">✉️</span><a href="mailto:abdulwahhab.aerotronic@gmail.com">abdulwahhab.aerotronic@gmail.com</a></div>
+      <div class="contact-row"><span class="icon">💼</span><a href="https://www.linkedin.com/in/abdul-wahhab-aeroworks/" target="_blank">linkedin.com/in/abdul-wahhab-aeroworks</a></div>
+      <div class="contact-row"><span class="icon">🔗</span><a href="https://www.upwork.com/freelancers/~01abd674e59cbcd66f" target="_blank">Hire me on Upwork</a></div>
+      <div class="contact-row"><span class="icon">📘</span><a href="https://www.facebook.com/abi5414647" target="_blank">facebook.com/abi5414647</a></div>
+      <div class="contact-row"><span class="icon">📸</span><a href="https://www.instagram.com/abdul._.wahhab/" target="_blank">@abdul._.wahhab</a></div>
+      <div class="contact-row"><span class="icon">📄</span><a href="https://drive.google.com/file/d/1r-d_GhCZ8WsNEp7eIJoo7VE_g_r-25hY/view" target="_blank">Download Resume (PDF)</a></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function show(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
