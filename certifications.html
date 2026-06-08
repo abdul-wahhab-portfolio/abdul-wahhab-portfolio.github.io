@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications — Abdul Wahhab</title>
+<meta name="description" content="Certifications and credentials of Abdul Wahhab — Mechanical Engineer specialising in UAV Design, CFD, FEA and Computational Aerospace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-card: #111113;
+    --bg-card2: #161618;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --accent: #7eaaff;
+    --accent-dim: rgba(126,170,255,0.12);
+    --text-primary: #eeebe6;
+    --text-secondary: #a8a5a0;
+    --text-tertiary: #666360;
+    --teal: #4ecba0;
+    --teal-dim: rgba(78,203,160,0.12);
+    --amber: #f5a623;
+    --amber-dim: rgba(245,166,35,0.12);
+    --coral: #ff7b6b;
+    --coral-dim: rgba(255,123,107,0.12);
+    --purple: #a78bfa;
+    --purple-dim: rgba(167,139,250,0.12);
+    --font: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* ── Nav ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,11,0.88); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-logo { font-family: var(--font); font-weight: 600; font-size: 15px; color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; border: 0.5px solid var(--border-hover); border-radius: 99px; padding: 6px 14px; }
+  .nav-back:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Layout ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+  .page-header { padding: 6rem 0 3rem; }
+  .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; font-family: var(--mono); display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); display: block; }
+  .page-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .page-subtitle { font-size: 14px; color: var(--text-secondary); }
+
+  /* ── Cert grid ── */
+  .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-bottom: 5rem; }
+
+  /* ── Cert card ── */
+  .cert-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.2s; display: flex; flex-direction: column; }
+  .cert-card:hover { border-color: var(--border-hover); }
+  .cert-image-wrap { width: 100%; overflow: hidden; cursor: zoom-in; }
+  .cert-image-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: opacity 0.2s; }
+  .cert-image-wrap img:hover { opacity: 0.88; }
+  .cert-body { padding: 1rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .cert-issuer { font-size: 11px; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+  .cert-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); line-height: 1.4; }
+  .cert-meta { font-size: 12px; color: var(--text-tertiary); font-family: var(--mono); }
+  .cert-footer { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .cert-badge { font-size: 11px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
+  .badge-teal  { background: var(--teal-dim);   color: var(--teal); }
+  .badge-amber { background: var(--amber-dim);  color: var(--amber); }
+  .badge-blue  { background: var(--accent-dim); color: var(--accent); }
+  .badge-coral { background: var(--coral-dim);  color: var(--coral); }
+  .badge-purple{ background: var(--purple-dim); color: var(--purple); }
+  .btn-verify { font-size: 12px; padding: 6px 14px; border-radius: var(--radius); border: 0.5px solid var(--border-hover); color: var(--text-secondary); text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px; }
+  .btn-verify:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── Lightbox ── */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 90vh; border-radius: var(--radius); object-fit: contain; }
+  .lightbox-close { position: fixed; top: 1.2rem; right: 1.5rem; font-size: 28px; color: var(--text-secondary); cursor: pointer; background: none; border: none; line-height: 1; }
+  .lightbox-close:hover { color: var(--text-primary); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .certs-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .container { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="Index.html">Abdul Wahhab</a>
+  <a class="nav-back" href="Index.html"><i class="ti ti-arrow-left"></i> Back to portfolio</a>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <p class="section-label">Credentials</p>
+    <h1 class="page-title">Certifications</h1>
+    <p class="page-subtitle">Professional certifications, courses &amp; credentials.</p>
+  </div>
+
+  <div class="certs-grid">
+
+    <!-- ═══════════════════════════════════════════════════
+         HOW TO ADD A CERTIFICATION
+         Copy one cert-card block, paste it here, and fill in:
+           - cert-image src
+           - cert-issuer (e.g. Coursera, Udemy, AIAA)
+           - cert-title
+           - cert-meta (issued date / credential ID)
+           - badge colour: badge-teal | badge-amber | badge-blue | badge-coral | badge-purple
+           - btn-verify href (link to verification page)
+    ════════════════════════════════════════════════════ -->
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-solidworks.webp" alt="Certified SolidWorks Design Professional" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Dassault Systèmes</span>
+        <div class="cert-title">SolidWorks Design Professional</div>
+        <div class="cert-meta">Issued Apr 2025 &nbsp;·&nbsp; ID: C-UD4V378Z6K</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">CAD / Design</span>
+          <a href="https://www.credly.com/badges/75c6c28c-d2dc-41c9-9575-e577385bddfc/public_url" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-sheetmetal.webp" alt="SolidWorks Sheetmetal Professional" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Dassault Systèmes</span>
+        <div class="cert-title">SolidWorks Sheetmetal Professional</div>
+        <div class="cert-meta">Issued Apr 2025 &nbsp;·&nbsp; ID: C-5ANMHUXCER</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">CAD / Design</span>
+          <a href="https://www.credly.com/badges/77af7298-c7f6-4a08-b633-7ce33951388b/public_url" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-cfd-siemens.webp" alt="Applied Computational Fluid Dynamics" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Siemens</span>
+        <div class="cert-title">Applied Computational Fluid Dynamics</div>
+        <div class="cert-meta">Issued Nov 2024 &nbsp;·&nbsp; ID: M87JFV84OS69</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-teal">CFD</span>
+          <a href="https://www.coursera.org/account/accomplishments/verify/M87JFV84OS69" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-ansys-structural.webp" alt="ANSYS Structural Analysis" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Itronix Solutions</span>
+        <div class="cert-title">ANSYS Structural Analysis</div>
+        <div class="cert-meta">Issued Oct 2024 &nbsp;·&nbsp; ID: #00107683</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-purple">FEA / Structural</span>
+          <a href="https://itronixsolutions.com/courses/certificate/74ae8d91eb" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-image-processing.webp" alt="Image Processing Specialization" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">MathWorks</span>
+        <div class="cert-title">Image Processing Specialization</div>
+        <div class="cert-meta">Issued Jul 2024 &nbsp;·&nbsp; ID: T6ZFWV974GJS</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-amber">Computer Vision</span>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/T6ZFWV974GJS" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-python-google.webp" alt="Crash Course on Python" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Google</span>
+        <div class="cert-title">Crash Course on Python</div>
+        <div class="cert-meta">Issued Feb 2024 &nbsp;·&nbsp; ID: PS4CLFGWS8LM</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-teal">Programming</span>
+          <a href="https://coursera.org/verify/PS4CLFGWS8LM" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-flight-mechanics.webp" alt="Flight Mechanics - The Basis" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">ISAE-SUPAERO</span>
+        <div class="cert-title">Flight Mechanics — The Basis</div>
+        <div class="cert-meta">Issued Apr 2024 &nbsp;·&nbsp; ID: CXGMVMRRR84K</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">Aerospace</span>
+          <a href="https://coursera.org/verify/CXGMVMRRR84K" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-autonomous-aerospace.webp" alt="Autonomous Aerospace Systems" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Università di Napoli Federico II</span>
+        <div class="cert-title">Autonomous Aerospace Systems</div>
+        <div class="cert-meta">Issued Mar 2024 &nbsp;·&nbsp; ID: LARL939VM425</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">Aerospace</span>
+          <a href="https://coursera.org/verify/LARL939VM425" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-solidworks-mold.webp" alt="SolidWorks 3D Mold Creator Associate" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Dassault Systèmes</span>
+        <div class="cert-title">SolidWorks 3D Mold Creator Associate</div>
+        <div class="cert-meta">Issued Aug 2024 &nbsp;·&nbsp; ID: C-PBFTQRLC9G</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">CAD / Design</span>
+          <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-PBFTQRLC9G" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap">
+        <img src="images/cert-solidworks-additive.webp" alt="SolidWorks Additive Manufacturing Associate" onclick="openLightbox(this)" style="aspect-ratio:1280/905;">
+      </div>
+      <div class="cert-body">
+        <span class="cert-issuer">Dassault Systèmes</span>
+        <div class="cert-title">SolidWorks Additive Manufacturing Associate</div>
+        <div class="cert-meta">Issued Jul 2024 &nbsp;·&nbsp; ID: C-DE8ZGQV4UL</div>
+        <div class="cert-footer">
+          <span class="cert-badge badge-blue">CAD / Manufacturing</span>
+          <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-DE8ZGQV4UL" target="_blank" class="btn-verify"><i class="ti ti-external-link"></i> Verify</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more cert cards below -->
+
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
