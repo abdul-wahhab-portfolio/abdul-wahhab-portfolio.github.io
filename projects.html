@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Abdul Wahhab</title>
+<meta name="description" content="All projects by Abdul Wahhab — Mechanical Engineer specialising in UAV Design, CFD, FEA, FSI and Computational Aerospace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-card: #111113;
+    --bg-card2: #161618;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --accent: #7eaaff;
+    --accent-dim: rgba(126,170,255,0.12);
+    --text-primary: #eeebe6;
+    --text-secondary: #a8a5a0;
+    --text-tertiary: #666360;
+    --teal: #4ecba0;
+    --teal-dim: rgba(78,203,160,0.12);
+    --amber: #f5a623;
+    --amber-dim: rgba(245,166,35,0.12);
+    --coral: #ff7b6b;
+    --coral-dim: rgba(255,123,107,0.12);
+    --purple: #a78bfa;
+    --purple-dim: rgba(167,139,250,0.12);
+    --font: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* ── Nav ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,11,0.88); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-logo { font-family: var(--font); font-weight: 600; font-size: 15px; color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; border: 0.5px solid var(--border-hover); border-radius: 99px; padding: 6px 14px; }
+  .nav-back:hover { color: var(--text-primary); border-color: var(--accent); color: var(--accent); }
+
+  /* ── Layout ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+  .page-header { padding: 6rem 0 3rem; }
+  .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; font-family: var(--mono); display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); display: block; }
+  .page-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .page-subtitle { font-size: 14px; color: var(--text-secondary); }
+
+  /* ── Filters ── */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
+  .filter-btn { font-size: 12px; padding: 5px 14px; border-radius: 99px; border: 0.5px solid var(--border-hover); color: var(--text-secondary); background: transparent; cursor: pointer; font-family: var(--font); transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+  /* ── Project cards ── */
+  .projects-list { padding-bottom: 5rem; }
+  .project-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; transition: border-color 0.2s; margin-bottom: 14px; }
+  .project-card:hover { border-color: var(--border-hover); }
+  .project-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .project-badge { font-size: 11px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
+  .badge-teal { background: var(--teal-dim); color: var(--teal); }
+  .badge-amber { background: var(--amber-dim); color: var(--amber); }
+  .badge-coral { background: var(--coral-dim); color: var(--coral); }
+  .badge-purple { background: var(--purple-dim); color: var(--purple); }
+  .badge-blue { background: var(--accent-dim); color: var(--accent); }
+  .project-year { font-size: 11.5px; color: var(--text-tertiary); font-family: var(--mono); }
+  .project-title { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--text-primary); margin-bottom: 10px; }
+  .project-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; text-align: justify; }
+  .project-images { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
+  .project-images img { width: 100%; height: 130px; object-fit: cover; border-radius: var(--radius); border: 0.5px solid var(--border); transition: opacity 0.2s; }
+  .project-images img:hover { opacity: 0.82; }
+  /* Full-view layout for 2 images stacked (4:3 ratio) */
+  .project-images-full { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .project-images-full img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); border: 0.5px solid var(--border); transition: opacity 0.2s; cursor: zoom-in; }
+  .project-images-full img:hover { opacity: 0.9; }
+  /* Banner + 2x2 grid layout */
+  .project-images-banner { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .project-images-banner .banner { width: 100%; aspect-ratio: 21/6; object-fit: cover; border-radius: var(--radius); border: 0.5px solid var(--border); cursor: zoom-in; transition: opacity 0.2s; }
+  .project-images-banner .banner:hover { opacity: 0.9; }
+  .project-images-banner .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .project-images-banner .grid img { width: 100%; aspect-ratio: 16/8; object-fit: cover; border-radius: var(--radius); border: 0.5px solid var(--border); cursor: zoom-in; transition: opacity 0.2s; }
+  .project-images-banner .grid img:hover { opacity: 0.9; }
+  .spec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+  .spec-tile { background: var(--bg-card2); border-radius: var(--radius); padding: 9px 12px; }
+  .spec-val { font-size: 14px; font-weight: 500; color: var(--text-primary); display: flex; align-items: center; gap: 5px; }
+  .spec-lbl { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; font-family: var(--mono); }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tag { font-size: 11.5px; padding: 3px 9px; border-radius: 99px; font-weight: 400; }
+  .tag-blue  { background: rgba(126,170,255,0.1); color: #93bbff; }
+  .tag-teal  { background: rgba(78,203,160,0.1);  color: #5dd4a8; }
+  .tag-purple{ background: rgba(167,139,250,0.1); color: #b89ffb; }
+  .tag-amber { background: rgba(245,166,35,0.1);  color: #f7b84b; }
+  .tag-coral { background: rgba(255,123,107,0.1); color: #ff9080; }
+  .btn-link { font-size: 12.5px; padding: 7px 16px; border-radius: var(--radius); border: 0.5px solid var(--border-hover); color: var(--text-secondary); text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Divider ── */
+  hr.divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
+
+  /* ── Empty state ── */
+  .add-project-hint { border: 0.5px dashed var(--border-hover); border-radius: var(--radius-lg); padding: 2rem; text-align: center; color: var(--text-tertiary); font-size: 13px; margin-bottom: 14px; }
+  .add-project-hint i { font-size: 24px; display: block; margin-bottom: 0.5rem; color: var(--border-hover); }
+
+  /* ── Lightbox ── */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 90vh; border-radius: var(--radius); object-fit: contain; }
+  .lightbox-close { position: fixed; top: 1.2rem; right: 1.5rem; font-size: 28px; color: var(--text-secondary); cursor: pointer; background: none; border: none; line-height: 1; }
+  .lightbox-close:hover { color: var(--text-primary); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .project-images { grid-template-columns: 1fr 1fr; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 1rem; }
+    .container { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Abdul Wahhab</a>
+  <a class="nav-back" href="index.html"><i class="ti ti-arrow-left"></i> Back to portfolio</a>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <p class="section-label">All projects</p>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-subtitle">UAV design, aerospace engineering, computational analysis &amp; more.</p>
+  </div>
+
+  <!-- ── Filter bar (optional — add/remove category buttons as needed) ── -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProjects('fixed-wing', this)">Fixed Wing</button>
+    <button class="filter-btn" onclick="filterProjects('multirotor', this)">Multirotor</button>
+    <button class="filter-btn" onclick="filterProjects('vtol', this)">VTOL</button>
+    <button class="filter-btn" onclick="filterProjects('automotive', this)">Automotive</button>
+    <button class="filter-btn" onclick="filterProjects('cfd', this)">CFD</button>
+    <button class="filter-btn" onclick="filterProjects('fea', this)">FEA / Structural</button>
+    <button class="filter-btn" onclick="filterProjects('control-nav', this)">Control &amp; Navigation</button>
+  </div>
+
+  <div class="projects-list">
+
+    <!-- ═══════════════════════════════════════════════════
+         HOW TO ADD A PROJECT
+         Copy one of the project-card blocks below, paste it
+         here, and fill in your own details.
+
+         data-category: used for filter buttons.
+           Options: uav | cfd | fea | software | other
+           You can set multiple separated by spaces, e.g.
+           data-category="uav cfd"
+
+         Badges: badge-amber | badge-teal | badge-coral |
+                 badge-purple | badge-blue
+
+         Tags:   tag-blue | tag-teal | tag-purple |
+                 tag-amber | tag-coral
+    ════════════════════════════════════════════════════ -->
+
+
+    <!-- ── PROJECT CARD TEMPLATE ─────────────────────────
+         Duplicate this block for each project.
+    ─────────────────────────────────────────────────── -->
+    <div class="project-card" data-category="fixed-wing cfd fea control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-amber">Thesis project</span>
+        <span class="project-year">2025 · R&amp;D project</span>
+      </div>
+      <h2 class="project-title">Design &amp; development of a high altitude long endurance UAV</h2>
+      <p class="project-desc">
+        A thorough study of existing HALE platforms revealed a clear gap. No small-scale, locally
+        manufacturable HALE UAV had been developed for regional use. All current systems are large,
+        costly, and designed for military or industrial-scale operations, leaving significant room
+        for optimisation at a smaller scale.
+      </p>
+      <p class="project-desc">
+        This project set out to fill that gap by developing a compact HALE UAV tailored for local
+        manufacturing and regional deployment, studying hybrid energy systems and energy-efficient
+        flight strategies at small scale. The aircraft integrates autonomous thermal
+        soaring, intelligent path planning, and high-efficiency batteries, with the airframe designed
+        for future solar integration to extend endurance beyond battery limits.
+      </p>
+      <p class="project-desc">
+        The design was validated through CFD, FEA and FSI analysis using an MDO framework, then
+        successfully prototyped and flight tested at altitudes up to 4,000 m.
+      </p>
+
+      <div class="project-images-full">
+        <img src="images/hale-uav-analysis.webp" alt="HALE UAV — CAD, CFD & FEA analysis" onclick="openLightbox(this)">
+        <img src="images/hale-uav-prototype.webp" alt="HALE UAV — prototype and flight test" onclick="openLightbox(this)" style="aspect-ratio:3/2;">
+      </div>
+
+      <!-- Specs: adjust or remove tiles as needed. Max 6 looks best. -->
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">3.8 m</div><div class="spec-lbl">Wingspan</div></div>
+        <div class="spec-tile"><div class="spec-val">5 kg</div><div class="spec-lbl">MTOW</div></div>
+        <div class="spec-tile"><div class="spec-val">8–12 hrs</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">8,000 m</div><div class="spec-lbl">Design altitude</div></div>
+        <div class="spec-tile"><div class="spec-val">3.0</div><div class="spec-lbl">Structural FoS</div></div>
+        <div class="spec-tile"><div class="spec-val"><i class="ti ti-circle-check" style="color:var(--teal);font-size:14px;"></i> Tested</div><div class="spec-lbl">Flight validated</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">HALE</span>
+          <span class="tag tag-blue">Fixed wing</span>
+          <span class="tag tag-teal">CFD</span>
+          <span class="tag tag-teal">FEA</span>
+          <span class="tag tag-purple">FSI</span>
+          <span class="tag tag-purple">Stability analysis</span>
+          <span class="tag tag-amber">MDO</span>
+          <span class="tag tag-amber">Path planning</span>
+          <span class="tag tag-coral">Prototype</span>
+          <span class="tag tag-coral">Flight tested</span>
+        </div>
+        <a href="https://drive.google.com/file/d/12xRV6UJGuyiJ5lI9thWbki9O1PFdkIti/view" target="_blank" class="btn-link"><i class="ti ti-file-text"></i> Read thesis</a>
+      </div>
+    </div>
+    <!-- ── END PROJECT CARD ───────────────────────────── -->
+
+
+    <div class="project-card" data-category="fixed-wing cfd fea control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-coral">Freelance project</span>
+        <span class="project-year">2026 · International freelance</span>
+      </div>
+      <h2 class="project-title">Solar-powered flying wing UAV</h2>
+      <p class="project-desc">
+        Conceptual design, detailed CAD modelling, and aerodynamic–structural evaluation of a solar
+        flying wing UAV for multi-day endurance operation at medium altitude. Full CFD, FEA, and FSI
+        analysis performed using SolidWorks Flow Simulation and Structural Solver, with aerodynamic
+        stability evaluated in OpenVSP and XFLR5. Avionics integration includes autopilot system,
+        autonomous navigation, and thermal soaring strategies for extended endurance beyond battery limits.
+      </p>
+      <div class="project-images-banner">
+        <img class="banner" src="images/solar-wing-banner.webp" alt="Solar flying wing front view" onclick="openLightbox(this)">
+        <div class="grid">
+          <img src="images/solar-wing-cfd.webp" alt="CFD flow trajectories" onclick="openLightbox(this)">
+          <img src="images/solar-wing-fea.webp" alt="FEA von Mises stress" onclick="openLightbox(this)">
+          <img src="images/solar-wing-stability.webp" alt="XFLR5 stability analysis" onclick="openLightbox(this)">
+          <img src="images/solar-wing-cad.webp" alt="Internal structure CAD" onclick="openLightbox(this)">
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">7 m</div><div class="spec-lbl">Wingspan</div></div>
+        <div class="spec-tile"><div class="spec-val">10 kg</div><div class="spec-lbl">MTOW</div></div>
+        <div class="spec-tile"><div class="spec-val">Multi-day</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">25–36</div><div class="spec-lbl">L/D ratio</div></div>
+        <div class="spec-tile"><div class="spec-val">3,000 m</div><div class="spec-lbl">Cruise altitude</div></div>
+        <div class="spec-tile"><div class="spec-val">2.5</div><div class="spec-lbl">Structural FoS</div></div>
+      </div>
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Solar</span>
+          <span class="tag tag-blue">Flying wing</span>
+          <span class="tag tag-teal">CFD</span>
+          <span class="tag tag-teal">FEA</span>
+          <span class="tag tag-purple">FSI</span>
+          <span class="tag tag-purple">Stability analysis</span>
+          <span class="tag tag-amber">MDO</span>
+          <span class="tag tag-amber">HALE</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1hMFjuhel9kHh7UqTlJfsX1D6ZUwWY5Oi?usp=sharing" target="_blank" class="btn-link"><i class="ti ti-folder"></i> Design reports</a>
+      </div>
+    </div>
+
+
+    <!-- ── ADD YOUR REMAINING PROJECTS BELOW ─────────────
+         Paste more project-card blocks here.
+         Use the template above as your guide.
+    ─────────────────────────────────────────────────── -->
+
+    <div class="project-card" data-category="vtol fea control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-coral">Industry project</span>
+        <span class="project-year">2026 · Sysverve Aerospace</span>
+      </div>
+      <h2 class="project-title">Pasban H-VTOL</h2>
+
+      <p class="project-desc">
+        Pasban H-VTOL is a long-endurance hybrid VTOL UAV designed for persistent intelligence, surveillance, and reconnaissance operations. The platform combines vertical takeoff and landing capability with a fixed-wing cruise configuration, enabling rapid deployment from confined or unprepared locations while maintaining high aerodynamic efficiency over extended missions.
+      </p>
+      <p class="project-desc">
+        Equipped with an AI-enabled EO/IR optical payload, it provides real-time day-and-night imaging for border surveillance, area monitoring, and search and rescue operations. The platform serves as a dual-use system, equally suited for civilian and defence applications including infrastructure inspection, disaster response, and persistent wide-area observation. It can also function as an airborne command node, coordinating with other aerial assets including loitering munitions. Hybrid electric-gasoline propulsion enables airborne endurance exceeding 8 hours and mission coverage up to 100 km.
+      </p>
+      <p class="project-desc">
+        Responsibilities covered the full design cycle from conceptual sizing and detailed CAD modelling to structural and aerodynamic evaluation, design for manufacturing, avionics integration, and path and mission planning.
+      </p>
+
+      <div class="project-images-full">
+        <img src="images/pasban-vtol-cad.webp" alt="Pasban H-VTOL CAD" onclick="openLightbox(this)">
+        <img src="images/pasban-vtol-photo.webp" alt="Pasban H-VTOL prototype" onclick="openLightbox(this)">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">3.5 m</div><div class="spec-lbl">Wingspan</div></div>
+        <div class="spec-tile"><div class="spec-val">30 kg</div><div class="spec-lbl">MTOW</div></div>
+        <div class="spec-tile"><div class="spec-val">6–8 hrs</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">100 km</div><div class="spec-lbl">Range</div></div>
+        <div class="spec-tile"><div class="spec-val">24 m/s</div><div class="spec-lbl">Cruise speed</div></div>
+        <div class="spec-tile"><div class="spec-val">1500–2000 m</div><div class="spec-lbl">Altitude</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Hybrid VTOL</span>
+          <span class="tag tag-blue">Fixed wing</span>
+          <span class="tag tag-teal">Aerodynamic evaluation</span>
+          <span class="tag tag-teal">Structural analysis</span>
+          <span class="tag tag-amber">CAD modelling</span>
+          <span class="tag tag-amber">DFM</span>
+          <span class="tag tag-coral">EO/IR payload</span>
+          <span class="tag tag-purple">Hybrid propulsion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="multirotor control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-coral">Industry project</span>
+        <span class="project-year">2025 · Sysverve Aerospace</span>
+      </div>
+      <h2 class="project-title">Shahab-SMF — Fiberoptic Operated Loitering Munition</h2>
+      <p class="project-desc">
+        Shahab-SMF is a jam-resistant, wired suicide quadcopter equipped with a 2 kg warhead and a 5 km operational range. Leveraging fiber optic communication, the system bypasses RF jamming entirely, ensuring secure and uninterrupted control in contested environments. Propulsion is fully electric with carbon fiber and reinforced plastic construction for a lightweight, low radar signature airframe suited to rapid deployment by ground forces.
+      </p>
+      <p class="project-desc">
+        Integrated with an AI-assisted target detection and locking system, the platform enables accurate target acquisition and stable terminal guidance for high-precision strike execution. Its intelligent guidance architecture, combined with real-time visual feedback, delivers consistent engagement accuracy across urban warfare, counter-EW operations, and high-threat tactical environments.
+      </p>
+      <p class="project-desc">
+        Responsibilities covered complete CAD design, 3D printing, compression moulding, autopilot integration, and control systems development.
+      </p>
+
+      <img src="images/shahab-smf.webp" alt="Shahab-SMF loitering munition" onclick="openLightbox(this)"
+           style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius);border:0.5px solid var(--border);margin-bottom:16px;cursor:zoom-in;transition:opacity 0.2s;"
+           onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">4.0 kg</div><div class="spec-lbl">Weight</div></div>
+        <div class="spec-tile"><div class="spec-val">2 kg</div><div class="spec-lbl">Warhead</div></div>
+        <div class="spec-tile"><div class="spec-val">5 km</div><div class="spec-lbl">Range</div></div>
+        <div class="spec-tile"><div class="spec-val">15 min</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">20 m/s</div><div class="spec-lbl">Speed</div></div>
+        <div class="spec-tile"><div class="spec-val">Fiber optic</div><div class="spec-lbl">Communication</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Quadcopter</span>
+          <span class="tag tag-blue">Loitering munition</span>
+          <span class="tag tag-teal">CAD</span>
+          <span class="tag tag-teal">3D printing</span>
+          <span class="tag tag-amber">Compression moulding</span>
+          <span class="tag tag-amber">Autopilot integration</span>
+          <span class="tag tag-coral">Control systems</span>
+          <span class="tag tag-purple">AI targeting</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="fixed-wing fea">
+      <div class="project-header">
+        <span class="project-badge badge-coral">Industry project</span>
+        <span class="project-year">2025 · Sysverve Aerospace</span>
+      </div>
+      <h2 class="project-title">Hadaf — Smart Munition</h2>
+      <p class="project-desc">
+        Hadaf is a long-range, GPS-guided smart munition designed for precision strike operations across diverse operational environments including open sea, desert, and high-altitude zones. Powered by a gasoline engine and carrying a 10 kg user-customisable warhead, it delivers a 300 km range with AI-assisted target identification for autonomous terminal engagement. Its low radar signature airframe and multi-environment operability make it effective against both stationary and mobile targets with minimal collateral damage.
+      </p>
+      <p class="project-desc">
+        Responsibilities covered conceptual design, design for manufacturing, structural analysis, and multidisciplinary optimisation for long-range operations.
+      </p>
+
+      <div class="project-images-full" style="margin-bottom:16px;">
+        <img src="images/hadaf-munition.webp" alt="Hadaf smart munition — CAD and FEA analysis" onclick="openLightbox(this)" style="aspect-ratio:4/3;">
+        <img src="images/hadaf-launch.webp" alt="Hadaf smart munition — launch platform" onclick="openLightbox(this)" style="aspect-ratio:16/9;">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">2.7 m</div><div class="spec-lbl">Wingspan</div></div>
+        <div class="spec-tile"><div class="spec-val">45 kg</div><div class="spec-lbl">Weight</div></div>
+        <div class="spec-tile"><div class="spec-val">300 km</div><div class="spec-lbl">Range</div></div>
+        <div class="spec-tile"><div class="spec-val">120 min</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">50 m/s</div><div class="spec-lbl">Speed</div></div>
+        <div class="spec-tile"><div class="spec-val">10 kg</div><div class="spec-lbl">Warhead</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Fixed wing</span>
+          <span class="tag tag-blue">Loitering munition</span>
+          <span class="tag tag-teal">Structural analysis</span>
+          <span class="tag tag-teal">FEA</span>
+          <span class="tag tag-amber">MDO</span>
+          <span class="tag tag-amber">DFM</span>
+          <span class="tag tag-coral">Conceptual design</span>
+          <span class="tag tag-purple">AI targeting</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="fixed-wing fea control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-blue">Student project</span>
+        <span class="project-year">2023 · University — 2nd Year</span>
+      </div>
+      <h2 class="project-title">Portable Long-Endurance High-Altitude UAV</h2>
+      <p class="project-desc">
+        Designed and developed a portable fixed-wing UAV optimised for long-endurance, high-altitude operations — up to 5 km altitude, 20 km radius, and 3 hours of flight — with a strong focus on cost-effectiveness. The airframe uses a foamcore structure coated with epoxy and reinforced with carbon fiber, achieving a lightweight yet durable build. Pixhawk 6X flight controller provides precise sensing and control throughout the mission envelope.
+      </p>
+      <p class="project-desc">
+        TBS Crossfire enables low-latency control within a 10 km mission radius. Autonomous thermal soaring detects and leverages thermal currents to extend endurance with optimised path adjustments, reducing energy consumption significantly over long sorties. The platform was demonstrated at a university guidance session for other students.
+      </p>
+
+      <div class="project-images" style="grid-template-columns:repeat(3,1fr);">
+        <img src="images/portable-uav-1.webp" alt="Portable UAV — prototype" onclick="openLightbox(this)" style="height:auto;aspect-ratio:1/1;">
+        <img src="images/portable-uav-2.webp" alt="Portable UAV — guidance session" onclick="openLightbox(this)" style="height:auto;aspect-ratio:1/1;">
+        <img src="images/portable-uav-3.webp" alt="Portable UAV — wing section" onclick="openLightbox(this)" style="height:auto;aspect-ratio:1/1;">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">20 km</div><div class="spec-lbl">Max radius</div></div>
+        <div class="spec-tile"><div class="spec-val">5 km</div><div class="spec-lbl">Altitude</div></div>
+        <div class="spec-tile"><div class="spec-val">3 hrs</div><div class="spec-lbl">Endurance</div></div>
+        <div class="spec-tile"><div class="spec-val">Pixhawk 6X</div><div class="spec-lbl">Flight controller</div></div>
+        <div class="spec-tile"><div class="spec-val">TBS Crossfire</div><div class="spec-lbl">Control link</div></div>
+        <div class="spec-tile"><div class="spec-val">CF + Foamcore</div><div class="spec-lbl">Construction</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Fixed wing</span>
+          <span class="tag tag-blue">Portable UAV</span>
+          <span class="tag tag-teal">CAD</span>
+          <span class="tag tag-teal">FEA / FSI</span>
+          <span class="tag tag-amber">Thermal soaring</span>
+          <span class="tag tag-amber">Autonomous navigation</span>
+          <span class="tag tag-coral">Pixhawk 6X</span>
+          <span class="tag tag-purple">Carbon fiber</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="vtol fea control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-blue">Student project</span>
+        <span class="project-year">2024 · UAS Competition</span>
+      </div>
+      <h2 class="project-title">Carbon Fiber Tilt-Rotor VTOL UAV</h2>
+      <p class="project-desc">
+        Developed a lightweight, energy-efficient tilt-rotor VTOL UAV with a carbon fiber airframe and aluminum structure. Wings were manufactured using vacuum infusion, reducing material waste while improving surface quality and structural performance. The platform combines vertical takeoff and landing with efficient fixed-wing cruise, enabling versatile deployment without a runway.
+      </p>
+      <p class="project-desc">
+        Integrated Pixhawk for advanced flight control and mission planning, with structural integrity verified through body analysis across multiple flight conditions. Completed 10+ hybrid autonomous missions using Mission Planner. Secured 3rd place at a Computer Vision and Robotics Exhibition and 6th place in a nationwide UAS challenge.
+      </p>
+
+      <div class="project-images-full">
+        <img src="images/tiltrotor-vtol-banner.webp" alt="Tilt-rotor VTOL — competition display" onclick="openLightbox(this)" style="aspect-ratio:1300/491;">
+        <img src="images/tiltrotor-vtol-collage.webp" alt="Tilt-rotor VTOL — prototype and CAD" onclick="openLightbox(this)" style="aspect-ratio:1006/682;">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">Tilt-rotor</div><div class="spec-lbl">Configuration</div></div>
+        <div class="spec-tile"><div class="spec-val">Carbon fiber</div><div class="spec-lbl">Construction</div></div>
+        <div class="spec-tile"><div class="spec-val">Vacuum infusion</div><div class="spec-lbl">Wing mfg.</div></div>
+        <div class="spec-tile"><div class="spec-val">Pixhawk</div><div class="spec-lbl">Flight controller</div></div>
+        <div class="spec-tile"><div class="spec-val">10+ missions</div><div class="spec-lbl">Autonomous flights</div></div>
+        <div class="spec-tile"><div class="spec-val"><i class="ti ti-award" style="color:var(--amber);font-size:14px;"></i> 3rd place</div><div class="spec-lbl">CV &amp; Robotics Expo</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Tilt-rotor VTOL</span>
+          <span class="tag tag-blue">Fixed wing</span>
+          <span class="tag tag-teal">CAD</span>
+          <span class="tag tag-teal">Structural analysis</span>
+          <span class="tag tag-amber">Vacuum infusion</span>
+          <span class="tag tag-amber">Carbon fiber</span>
+          <span class="tag tag-coral">Pixhawk</span>
+          <span class="tag tag-purple">Mission Planner</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="multirotor control-nav">
+      <div class="project-header">
+        <span class="project-badge badge-teal">R&amp;D project</span>
+        <span class="project-year">2023 · Independent</span>
+      </div>
+      <h2 class="project-title">AI-Powered Agricultural Hexacopter — Spraying &amp; Crop Monitoring</h2>
+      <p class="project-desc">
+        Designed and developed an AI-powered hexacopter for precision agricultural operations, combining autonomous crop health monitoring with adaptive, real-time pesticide, fertiliser, and nutrient spraying. The platform directly addresses inefficiencies in conventional agricultural spraying — chemical overuse, uneven coverage, and late-stage crop disease detection — by replacing manual judgement with continuous, data-driven decision-making.
+      </p>
+      <p class="project-desc">
+        The onboard Jetson Nano vision system, trained on field data from 100+ agricultural sites, performs real-time multispectral crop health analysis and classifies stress conditions across diverse crop types. Adaptive spraying algorithms modulate spray rate and spatial coverage based on detected conditions, significantly reducing chemical waste while improving yield outcomes. Autonomous navigation with dynamic path adjustment ensures complete field coverage with minimal operator input, while the rugged, weather-resistant airframe and high-payload capacity support year-round large-scale farmland operations.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+        <img src="images/agri-hex-1.webp" alt="Agricultural hexacopter — field deployment" onclick="openLightbox(this)"
+             style="width:100%;height:280px;object-fit:cover;object-position:center;aspect-ratio:1280/1465;border-radius:var(--radius);border:0.5px solid var(--border);cursor:zoom-in;transition:opacity 0.2s;"
+             onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+        <img src="images/agri-hex-2.webp" alt="Agricultural hexacopter — top view" onclick="openLightbox(this)"
+             style="width:100%;height:280px;object-fit:cover;border-radius:var(--radius);border:0.5px solid var(--border);cursor:zoom-in;transition:opacity 0.2s;"
+             onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">Hexacopter</div><div class="spec-lbl">Configuration</div></div>
+        <div class="spec-tile"><div class="spec-val">Jetson Nano</div><div class="spec-lbl">Vision system</div></div>
+        <div class="spec-tile"><div class="spec-val">100+ sites</div><div class="spec-lbl">Training data</div></div>
+        <div class="spec-tile"><div class="spec-val">Autonomous</div><div class="spec-lbl">Navigation</div></div>
+        <div class="spec-tile"><div class="spec-val">Multi-crop</div><div class="spec-lbl">Compatibility</div></div>
+        <div class="spec-tile"><div class="spec-val">High payload</div><div class="spec-lbl">Spray capacity</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Hexacopter</span>
+          <span class="tag tag-blue">Agriculture</span>
+          <span class="tag tag-teal">AI / Computer vision</span>
+          <span class="tag tag-teal">Jetson Nano</span>
+          <span class="tag tag-amber">Precision spraying</span>
+          <span class="tag tag-amber">Autonomous navigation</span>
+          <span class="tag tag-coral">Crop monitoring</span>
+          <span class="tag tag-purple">Path planning</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="automotive fea">
+      <div class="project-header">
+        <span class="project-badge badge-purple">Academic project</span>
+        <span class="project-year">2024 · Structural Design</span>
+      </div>
+      <h2 class="project-title">Heavy-Duty Trailer — Structural Design &amp; FEA Validation</h2>
+      <p class="project-desc">
+        Designed and validated a heavy-duty trailer for a 1000 kg payload with a target factor of safety exceeding 2.0, balancing structural robustness with cost-efficiency and manufacturability. The chassis uses C-section carbon steel beams with a reinforced load grid, precision hinge mounts, and leaf spring fixtures engineered for long-term reliability under repeated loading.
+      </p>
+      <p class="project-desc">
+        FEA analysis confirmed a chassis FOS of 2.7 with a natural frequency range of 403–3276 Hz, comfortably clear of operational excitation frequencies. Axle verification achieved FOS 2.0 with a 60.3 Hz natural frequency. Leaf springs and M10 bolts were independently validated under full load conditions. The final design came in at 256.7 kg with an estimated manufacturing cost of Rs. 124k — optimised for strength, vibration safety, and direct manufacturing readiness.
+      </p>
+
+      <div class="project-images-full">
+        <img src="images/trailer-cad.webp" alt="Trailer — CAD assembly and components" onclick="openLightbox(this)" style="aspect-ratio:4/3;">
+        <img src="images/trailer-fea.webp" alt="Trailer — FEA and modal analysis results" onclick="openLightbox(this)" style="aspect-ratio:1116/786;">
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">1000 kg</div><div class="spec-lbl">Payload capacity</div></div>
+        <div class="spec-tile"><div class="spec-val">2.7</div><div class="spec-lbl">Chassis FOS</div></div>
+        <div class="spec-tile"><div class="spec-val">256.7 kg</div><div class="spec-lbl">Total mass</div></div>
+        <div class="spec-tile"><div class="spec-val">403–3276 Hz</div><div class="spec-lbl">Natural frequency</div></div>
+        <div class="spec-tile"><div class="spec-val">2.0</div><div class="spec-lbl">Axle FOS</div></div>
+        <div class="spec-tile"><div class="spec-val">~Rs. 124k</div><div class="spec-lbl">Est. cost</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-teal">FEA</span>
+          <span class="tag tag-teal">Modal analysis</span>
+          <span class="tag tag-blue">CAD</span>
+          <span class="tag tag-blue">Carbon steel</span>
+          <span class="tag tag-amber">Structural validation</span>
+          <span class="tag tag-amber">DFM</span>
+          <span class="tag tag-purple">Leaf spring analysis</span>
+          <span class="tag tag-coral">Bolt verification</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="automotive fea">
+      <div class="project-header">
+        <span class="project-badge badge-purple">Academic project</span>
+        <span class="project-year">2024 · Vehicle Design &amp; FEA</span>
+      </div>
+      <h2 class="project-title">Dune Buggy — Space Frame Design &amp; Structural Analysis</h2>
+      <p class="project-desc">
+        Designed and analysed a tubular steel space-frame dune buggy optimised for off-road performance and structural safety. The chassis integrates a full roll cage, 4-wheel independent suspension with coilover dampers, and a dedicated battery and electronics bay — reflecting a hybrid or electric drivetrain architecture. The top-down layout was optimised for balanced weight distribution and suspension geometry, with mounting points for all major drivetrain and chassis components.
+      </p>
+      <p class="project-desc">
+        Structural validation was performed through FEA using SolidWorks Simulation. Resultant displacement analysis showed a maximum deformation of 0.12 mm under load, while equivalent strain remained within acceptable limits (max 6.921e-05), confirming the frame's rigidity and structural integrity across static loading conditions. The results validate the space frame geometry for the intended off-road use case.
+      </p>
+
+      <img src="images/dune-buggy.webp" alt="Dune buggy — CAD design and FEA analysis" onclick="openLightbox(this)"
+           style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);border:0.5px solid var(--border);margin-bottom:16px;cursor:zoom-in;transition:opacity 0.2s;"
+           onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">Space frame</div><div class="spec-lbl">Chassis type</div></div>
+        <div class="spec-tile"><div class="spec-val">4-wheel indep.</div><div class="spec-lbl">Suspension</div></div>
+        <div class="spec-tile"><div class="spec-val">0.12 mm</div><div class="spec-lbl">Max displacement</div></div>
+        <div class="spec-tile"><div class="spec-val">6.92e-05</div><div class="spec-lbl">Max strain</div></div>
+        <div class="spec-tile"><div class="spec-val">Roll cage</div><div class="spec-lbl">Safety structure</div></div>
+        <div class="spec-tile"><div class="spec-val">Electric</div><div class="spec-lbl">Drivetrain</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-teal">FEA</span>
+          <span class="tag tag-teal">Structural analysis</span>
+          <span class="tag tag-blue">CAD</span>
+          <span class="tag tag-blue">Space frame</span>
+          <span class="tag tag-amber">Suspension design</span>
+          <span class="tag tag-amber">Roll cage</span>
+          <span class="tag tag-coral">Off-road vehicle</span>
+          <span class="tag tag-purple">SolidWorks Simulation</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card" data-category="fixed-wing">
+      <div class="project-header">
+        <span class="project-badge badge-blue">Design project</span>
+        <span class="project-year">2026 · Wing Systems</span>
+      </div>
+      <h2 class="project-title">UAV Wing Assembly — Slat, Flap &amp; Aileron Integration</h2>
+      <p class="project-desc">
+        Designed a fully integrated UAV wing assembly incorporating three independently actuated control surfaces: a leading-edge slat for high-lift augmentation, a trailing-edge flap for camber and lift enhancement, and an aileron for roll control. All surfaces are servo-actuated via SG90 micro servos connected through pushrod linkage mechanisms, providing precise, low-friction control authority across the full deflection range.
+      </p>
+      <p class="project-desc">
+        The wing structure is built around a carbon spar as the primary load-carrying member, with mixed-material construction for the remaining components. Servo deflection ranges are 25–45° for the slat and 20–30° for the flap and aileron. The design was documented to full engineering drawing standard, including an exploded assembly drawing with BOM, section views (A-A, B-B), and detail views of all servo mounting and pushrod locking interfaces.
+      </p>
+
+      <div class="project-images-banner">
+        <img class="banner" src="images/wing-drawing.webp" alt="Wing assembly — engineering drawing" onclick="openLightbox(this)" style="aspect-ratio:1188/836;">
+        <div class="grid">
+          <img src="images/wing-exploded.webp" alt="Wing assembly — exploded CAD view" onclick="openLightbox(this)">
+          <img src="images/wing-assembly.webp" alt="Wing assembly — assembled CAD view" onclick="openLightbox(this)">
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-tile"><div class="spec-val">3 surfaces</div><div class="spec-lbl">Control surfaces</div></div>
+        <div class="spec-tile"><div class="spec-val">SG90 ×4</div><div class="spec-lbl">Servo actuators</div></div>
+        <div class="spec-tile"><div class="spec-val">Pushrod</div><div class="spec-lbl">Linkage type</div></div>
+        <div class="spec-tile"><div class="spec-val">Carbon spar</div><div class="spec-lbl">Primary structure</div></div>
+        <div class="spec-tile"><div class="spec-val">25–45°</div><div class="spec-lbl">Slat deflection</div></div>
+        <div class="spec-tile"><div class="spec-val">20–30°</div><div class="spec-lbl">Flap deflection</div></div>
+      </div>
+
+      <div class="project-footer">
+        <div class="tags">
+          <span class="tag tag-blue">Wing design</span>
+          <span class="tag tag-blue">Control surfaces</span>
+          <span class="tag tag-teal">CAD</span>
+          <span class="tag tag-teal">Engineering drawing</span>
+          <span class="tag tag-amber">Slat / Flap / Aileron</span>
+          <span class="tag tag-amber">Servo actuation</span>
+          <span class="tag tag-coral">Carbon spar</span>
+          <span class="tag tag-purple">BOM &amp; assembly</span>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div><!-- /projects-list -->
+</div><!-- /container -->
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  function filterProjects(category, btn) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Show/hide cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cats = card.dataset.category || '';
+      if (category === 'all' || cats.split(' ').includes(category)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html
